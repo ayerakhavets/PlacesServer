@@ -2,9 +2,12 @@ const mongoose = require('mongoose')
 
 // set the database name
 const dbName = 'Places'
-
+const dbUrl = 'mongodb43339-minskfood.mycloud.by/'
+const userName = 'naruto'
+const userPassword = 'uzumaki'
 // connect to the database
-mongoose.connect(`mongodb://localhost:27017/${dbName}`)
+
+mongoose.connect(`mongodb://${userName}:${userPassword}@${dbUrl}${dbName}`)
 
 // get notified if the connection was successful or not
 const db = mongoose.connection
