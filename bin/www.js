@@ -70,7 +70,7 @@ function onError(error) {
 
 function onListening() {
     soap.listen(app, '/wsdl', service.myService, service.xml)
-    let addr = server.address();
+    const addr = server.address();
     const bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
