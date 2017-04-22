@@ -31,6 +31,7 @@ const myService = {
         SweetServicePort: {
             getPlace: function (args, callback) {
                 Place.find({}, (err, places) => {
+                    console.log('SOAP: getPlace()')
                     if (err) {
                         errorLog(err)
                     } else {
