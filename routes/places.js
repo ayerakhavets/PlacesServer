@@ -82,7 +82,7 @@ const deletePlace = (req, res) => {
 };
 
 
-// Get an instance of express router.
+// Get an instance of the express router.
 const router = express.Router();
 
 // Routes ending with "/".
