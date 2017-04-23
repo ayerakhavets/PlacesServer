@@ -3,7 +3,7 @@
 ## Features:
 This API provides tools for the following:
 * Handling HTTP-requests such as:
-  * Create a place (accessed at POST http://minskfood.mycloud.by/places)
+  * Create a place (accessed at POST 'http://apiurl/places)
   * Read all places (accessed at GET http://minskfood.mycloud.by/places)
   * Delete all places (accessed at DELETE http://minskfood.mycloud.by/places)
   * Read place by id (accessed at GET http://minskfood.mycloud.by/places/:id)
