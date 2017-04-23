@@ -3,7 +3,7 @@
 ## Features:
 This API provides tools for the following:
 * Handling HTTP-requests such as:
-  * Create a place (POST http://apiurl/places)
+  * Create place (POST http://apiurl/places)
   * Read all places (GET /places)
   * Delete all places (DELETE /places)
   * Read place by id (GET /places/:id)
