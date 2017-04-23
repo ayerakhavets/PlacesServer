@@ -1,7 +1,7 @@
 // Module dependencies.
 import app from '../server';
-import soap from 'soap';
 import http from 'http';
+import soap from 'soap';
 import {myService, xml} from '../configs/soap-service';
 import '../configs/database';
 

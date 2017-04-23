@@ -1,7 +1,11 @@
 MongoDB terminology:
+
 db - db
+
 table - collection
+
 row - document
+
 column - field
 
 CREATE a place (accessed at POST http://localhost:3000/places)

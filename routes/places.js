@@ -4,7 +4,7 @@ import Place from '../models/place';
 const postPlaces = (req, res) => {
     Place.create(req.body, (err, place) => {
         if (err) {
-            res.sendStatus(400).send(err);
+            res.status(400).send(err);
             errorLog(err)
         } else {
             res.send(place);

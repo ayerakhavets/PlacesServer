@@ -1,6 +1,6 @@
 import location from './location';
 import mongoose from 'mongoose';
-import time from './workTime';
+import workTime from './workTime';
 import review from './review';
 
 const PlaceSchema = new mongoose.Schema({
@@ -18,7 +18,7 @@ const PlaceSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Why no name?']
     },
-    time: time.schema,
+    workTime: workTime.schema,
     reviews: [review.schema],
     images: [String],
     locations: [location.schema],
