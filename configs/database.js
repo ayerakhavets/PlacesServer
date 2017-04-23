@@ -1,17 +1,16 @@
 import mongoose from "mongoose";
+import {username, password} from './options'
 
 const dbName = 'Places';
 const dbUrl = 'mongodb43339-minskfood.mycloud.by/';
-const username = 'naruto';
-const password = 'uzumaki';
 
 const options = {
-    server: { reconnectInterval: 5000 }/*,
+    server: { reconnectInterval: 5000 },
     user: username,
-    pass: password*/
+    pass: password
 };
 //mongoose.connect(`mongodb://${username}:${password}@${dbUrl}${dbName}`);
-mongoose.connect(`mongodb://${dbUrl}${dbName}`);
+mongoose.connect(`mongodb://${dbUrl}${dbName}`, options);
 //mongoose.connect(`mongodb://localhost:27017/${dbName}`, options);
 
 const db = mongoose.connection;
