@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
-import {username, password} from './options'
 
 const dbName = 'Places';
 const dbUrl = 'mongodb43339-minskfood.mycloud.by/';
+const username = 'naruto';
+const password = 'uzumaki';
 
 const options = {
     server: { reconnectInterval: 5000 },
