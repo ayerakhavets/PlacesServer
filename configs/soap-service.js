@@ -1,12 +1,11 @@
-const fs = require('fs');
-const express = require('express');
-const Place = require('../models/place');
+import fs from 'fs';
+import Place from '../models/place';
 
-isObject = function (a) {
+const isObject = (a) => {
     return (!!a) && (a.constructor === Object)
-}
+};
 
-// ИБО ksoap2 кидает объект
+// Because ksoap2 throws an object.
 function _V(val) {
 
     if (isObject(val)) {
@@ -19,39 +18,29 @@ function _V(val) {
 function _VI(val) {
     return parseInt(_V(val));
 }
-// zреферат по сборщикам мусора в xamarin
-
-
-const errorLog = (err) => {
-    console.log(timeLog() + err.message)
-}
 
 const myService = {
     SweetService: {
         SweetServicePort: {
             getPlace: function (args, callback) {
                 Place.find({}, (err, places) => {
-                    console.log('SOAP: getPlace()')
+                    console.log('SOAP: getPlace()' + args + _VI(args.x) + _VI(args.y));
                     if (err) {
                         errorLog(err)
                     } else {
-                        console.log(timeLog() + `returned items: ${places.length}`)
+                        console.log(timeLog() + `returned items: ${places.length}`);
                         callback(null, {sum: 5});
                     }
                 })
-
-                // console.log(args)
-                // console.log(_VI(args.x) + _VI(args.y))
-                // return {
-                //     sum: _VI(args.x) + _VI(args.y)//"101"//parseInt(args.x)+parseInt(args.y)
-                // }
             }
         }
     }
-}
+};
 
-//var xml = fs.readFileSync('configs/myservice.wsdl', 'utf8')
-const xml = fs.readFileSync(__dirname + '/myservice.wsdl', 'utf8')
+const xml = fs.readFileSync('configs/myservice.wsdl', 'utf8');
+//const xml = fs.readFileSync(__dirname + '/myservice.wsdl', 'utf8');
 
-module.exports.xml = xml
-module.exports.myService = myService
+// module.exports.xml = xml;
+// module.exports.myService = myService
+
+export {xml, myService}

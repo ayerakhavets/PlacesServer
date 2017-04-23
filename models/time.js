@@ -1,19 +1,16 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const TimeSchema = new mongoose.Schema(
-    {
-        open: {
-            type: Number,
-            min: [0, 'wrong format'],
-            max: [23, 'wrong format']
-        },
-        close: {
-            type: Number,
-            min: [0, 'wrong format'],
-            max: [23, 'wrong format']
-        }
+const TimeSchema = new mongoose.Schema({
+    hours: {
+        type: Number,
+        min: [0, 'wrong format'],
+        max: [23, 'wrong format']
     },
-    {_id: false}
-);
+    minutes: {
+        type: Number,
+        min: [0, 'wrong format'],
+        max: [23, 'wrong format']
+    }
+}, {_id: false});
 
-module.exports = mongoose.model('Time', TimeSchema);
+export default mongoose.model('Time', TimeSchema)
