@@ -10,7 +10,6 @@ const options = {
     user: username,
     pass: password
 };
-//mongoose.connect(`mongodb://${username}:${password}@${dbUrl}${dbName}`);
 mongoose.connect(`mongodb://${dbUrl}${dbName}`, options);
 //mongoose.connect(`mongodb://localhost:27017/${dbName}`, options);
 

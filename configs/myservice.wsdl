@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--http://minskfood.mycloud.by/-->
 <definitions
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:tns="http://192.168.0.17:3000/"
+        xmlns:tns="http://minskfood.mycloud.by/"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
         xmlns="http://schemas.xmlsoap.org/wsdl/"
@@ -13,7 +12,7 @@
                 xmlns:tns="http://schemas.xmlsoap.org/wsdl/"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 elementFormDefault="qualified"
-                targetNamespace="http://192.168.0.17:3000/">
+                targetNamespace="http://minskfood.mycloud.by/">
             <xs:element name="Request">
                 <xs:complexType>
                     <xs:sequence>
@@ -61,7 +60,7 @@
     <!-- Service definition -->
     <service name="SweetService">
         <port name="SweetServicePort" binding="tns:SweetServiceBinding">
-            <soap:address location="http://192.168.0.17:3000/wsdl"/>
+            <soap:address location="http://minskfood.mycloud.by/wsdl"/>
         </port>
     </service>
 </definitions>
