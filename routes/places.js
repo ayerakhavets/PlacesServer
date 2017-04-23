@@ -28,7 +28,7 @@ export default router;
 function deletePlace (req, res) {
     Place.findByIdAndRemove(req.params.id, (err, place) => {
         if (err) {
-            res.status(500).send(err);
+            res.status(400).send(err);
             errorLog(err)
         } else if (place !== null) {
             res.sendStatus(204);
@@ -43,7 +43,7 @@ function deletePlace (req, res) {
 function deletePlaces(req, res) {
     Place.remove({}, (err) => {
         if (err) {
-            res.status(500).send(err);
+            res.status(400).send(err);
             errorLog(err)
         } else {
             res.sendStatus(204);
@@ -55,7 +55,7 @@ function deletePlaces(req, res) {
 function getPlace(req, res) {
     Place.findById(req.params.id, (err, place) => {
         if (err) {
-            res.status(500).send(err);
+            res.status(400).send(err);
             errorLog(err)
         } else if (place === null) {
             res.sendStatus(404)
@@ -69,7 +69,7 @@ function getPlace(req, res) {
 function getPlaces(req, res) {
     Place.find({}, (err, places) => {
         if (err) {
-            res.status(500).send(err);
+            res.status(400).send(err);
             errorLog(err)
         } else {
             res.json(places);
