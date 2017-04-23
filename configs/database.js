@@ -6,12 +6,13 @@ const username = 'naruto';
 const password = 'uzumaki';
 
 const options = {
-    server: { reconnectInterval: 5000 }
-    //user: 'myUserName',
-    //pass: 'myPassword'
+    server: { reconnectInterval: 5000 }/*,
+    user: username,
+    pass: password*/
 };
 //mongoose.connect(`mongodb://${username}:${password}@${dbUrl}${dbName}`);
-mongoose.connect(`mongodb://localhost:27017/${dbName}`, options);
+mongoose.connect(`mongodb://${dbUrl}${dbName}`);
+//mongoose.connect(`mongodb://localhost:27017/${dbName}`, options);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

@@ -7,7 +7,7 @@ const postPlaces = (req, res) => {
             res.status(400).send(err);
             errorLog(err)
         } else {
-            res.send(place);
+            res.status(201).send(place);
             console.log(`${timeLog()} ${place.name} created`)
         }
     })
@@ -72,11 +72,11 @@ const deletePlace = (req, res) => {
             res.status(500).send(err);
             errorLog(err)
         } else if (place !== null) {
-            res.json({message: `Place ${place.name} removed`});
-            console.log(timeLog() + `Place ${place.name} has been removed`)
+            res.sendStatus(204);
+            console.log(`${timeLog()} place ${place.name} has been removed`)
         } else {
             res.sendStatus(404);
-            console.log(`${timeLog()} NO SUCH FILE`)
+            console.log(`${timeLog()} place not found`)
         }
     })
 };

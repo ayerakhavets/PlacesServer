@@ -1,24 +1,15 @@
+##foodapi
+
 MongoDB terminology:
+* db - db
+* table - collection
+* row - document
+* column - field
 
-db - db
-
-table - collection
-
-row - document
-
-column - field
-
-CREATE a place (accessed at POST http://localhost:3000/places)
-
-READ all places (accessed at GET http://localhost:3000/places)
-
-DELETE all
-
-READ the place with that id (accessed at GET http://localhost:3000/places/:id)
-
-```javascript
-    .get(getPlace)
-    // UPDATE the place with this id (accessed at PUT http://localhost:3000/places/:id)
-    .put(putPlace)
-    // DELETE the place with this id (accessed at DELETE http://localhost:3000/places/:id)
-```
+With this api you can:
+* CREATE a place (accessed at POST http://apiUrl/places)
+* READ all places (accessed at GET http://apiUrl/places)
+* DELETE all
+* READ place by id (accessed at GET http://apiUrl/places/:id)
+* UPDATE place by id (accessed at PUT http://apiUrl/places/:id)
+* DELETE place by id (accessed at DELETE http://apiUrl/places/:id)

@@ -9,7 +9,7 @@ const TimeSchema = new mongoose.Schema({
     minutes: {
         type: Number,
         min: [0, 'wrong format'],
-        max: [23, 'wrong format']
+        max: [59, 'wrong format']
     }
 }, {_id: false});
 

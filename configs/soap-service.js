@@ -24,12 +24,12 @@ const myService = {
         SweetServicePort: {
             getPlace: function (args, callback) {
                 Place.find({}, (err, places) => {
-                    console.log('SOAP: getPlace()' + args + _VI(args.x) + _VI(args.y));
+                    console.log(`SOAP: getPlace() ${args} ${_VI(args.x)} + ${_VI(args.y)}`);
                     if (err) {
                         errorLog(err)
                     } else {
-                        console.log(timeLog() + `returned items: ${places.length}`);
-                        callback(null, {sum: 5});
+                        console.log(`${timeLog()} returned items: ${places.length}`);
+                        callback(null, {sum: places.length});
                     }
                 })
             }
@@ -39,8 +39,5 @@ const myService = {
 
 const xml = fs.readFileSync('configs/myservice.wsdl', 'utf8');
 //const xml = fs.readFileSync(__dirname + '/myservice.wsdl', 'utf8');
-
-// module.exports.xml = xml;
-// module.exports.myService = myService
 
 export {xml, myService}
