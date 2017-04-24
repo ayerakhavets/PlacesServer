@@ -8,12 +8,12 @@
     "start": "babel-node ./bin/www"
   },
   "keywords": [
-    "rest",
-    "soap",
     "api",
-    "mongodb"
+    "mongodb",
+    "rest",
+    "soap"
   ],
-  "author": "Yerokhovets A. V.",
+  "author": "Alexander Yerokhovets",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",

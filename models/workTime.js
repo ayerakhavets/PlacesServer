@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import time from './time';
+import time     from './time';
 
 const WorkTimeSchema = new mongoose.Schema({
     open: time.schema,

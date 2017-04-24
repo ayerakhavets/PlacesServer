@@ -1,27 +1,22 @@
-// Module dependencies.
-import app from '../server';
+import app  from '../server';
 import http from 'http';
 import soap from 'soap';
 import {myService, xml} from '../configs/soap-service';
 import '../configs/database';
 
 global.timeLog = () => `[${new Date().toLocaleString()}]`;
-global.errorLog = (err) => console.log(`${timeLog()} ${err}`);
 
-// Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-// Create HTTP server.
 const server = http.createServer(app);
 
-// Listen on provided port, on all network interfaces.
 server.listen(port);
 
 server.on('error', onError);
 server.on('listening', onListening);
 
-// Normalize a port into a number, string, or false.
+// Normalize a port into a number, string, or false
 function normalizePort(val) {
     const port = parseInt(val, 10);
 
@@ -38,7 +33,6 @@ function normalizePort(val) {
     return false;
 }
 
-// Event listener for HTTP server "error" event.
 function onError(error) {
     if (error.syscall !== 'listen') {
         throw error
@@ -61,14 +55,11 @@ function onError(error) {
     }
 }
 
-// Event listener for HTTP server "listening" event.
 function onListening() {
     let addr = server.address();
-    const bind = typeof addr === 'string'
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
+    const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log(`${timeLog()} listening on ${bind}`);
 
-    // Start SOAP service.
+    // Start SOAP service
     soap.listen(app, '/wsdl', myService, xml)
 }

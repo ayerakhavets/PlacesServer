@@ -13,13 +13,8 @@ Both RESTful and SOAP server for node.js
   * Update place by id (PUT /places/:id)
   * Delete place by id (DELETE /places/:id)
 * Handling SOAP requests
-## Little theory
-MongoDB terminology:
-* db - db
-* table - collection
-* row - document
-* column - field
+
 ## Primary modules
-[soap](https://github.com/vpulim/node-soap).
+[soap](https://github.com/vpulim/node-soap)
 [express](https://github.com/expressjs/express)
 [mogoose](https://github.com/Automattic/mongoose)
