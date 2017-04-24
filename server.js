@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(function (req, res, next) {
-    console.log(`${timeLog()} request accepted from ${req.ip} { url: ${req.url}, method: ${req.method} }`);
+    console.log(`${timeLog()} request accepted from ${req.session.user} { url: ${req.url}, method: ${req.method} }`);
     next()
 });
 

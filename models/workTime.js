@@ -3,17 +3,15 @@ import mongoose from 'mongoose';
 const TimeSchema = new mongoose.Schema({
     hours: {
         type: Number,
-        min: [0, 'wrong format'],
-        max: [23, 'wrong format']
+        min: [0, 'wrong hour format'],
+        max: [23, 'wrong hour format']
     },
     minutes: {
         type: Number,
-        min: [0, 'wrong format'],
-        max: [59, 'wrong format']
+        min: [0, 'wrong minutes format'],
+        max: [59, 'wrong minutes format']
     }
-});
-//mongoose.model('Time', TimeSchema);
-
+}, {_id: false});
 
 const WorkTimeSchema = new mongoose.Schema({
     open: TimeSchema,

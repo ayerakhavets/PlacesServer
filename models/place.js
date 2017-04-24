@@ -18,14 +18,14 @@ const PlaceSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Why no name?']
     },
-    locations: {
+    location: {
         type: location.schema,
         required: [true, 'Why no location?']
     },
     workTime: workTime.schema,
-    reviews: [review.schema],
+    tags: [String],
     images: [String],
-    tags: [String]
+    reviews: [review.schema]
 }, {versionKey: false}, {minimize: false});
 
 export default mongoose.model('Place', PlaceSchema);
