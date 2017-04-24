@@ -33,6 +33,6 @@ function _VI(val) {
     return parseInt(_V(val));
 }
 
-const xml = fs.readFileSync('configs/myservice.wsdl', 'utf8');
+const xml = fs.readFileSync(__dirname + '/myservice.wsdl', 'utf8');
 
 export {xml, myService}
