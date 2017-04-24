@@ -40,7 +40,7 @@ function deletePlaces(req, res) {
             console.log(`${timeLog()} ${err.name}`)
         } else {
             res.sendStatus(204);
-            console.log(`${timeLog()} ${Place.name} collection removed`)
+            console.log(`${timeLog()} ${Place.collectionName} collection removed`)
         }
     })
 }
