@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const dbName   = 'Places';
-const dbUrl    = 'mongodb43339-minskfood.mycloud.by/';
+const dbUrl    = 'mongodb43339-minskfood.mycloud.by';
 const username = 'naruto';
 const password = 'uzumaki';
 
@@ -10,7 +10,7 @@ const options = {
     user: username,
     pass: password
 };
-mongoose.connect(`mongodb://${dbUrl}${dbName}`, options);
+mongoose.connect(`mongodb://${dbUrl}/${dbName}`, options);
 
 const db = mongoose.connection;
 

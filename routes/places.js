@@ -5,15 +5,15 @@ const router = express.Router();
 
 // Routes ending with "/"
 router.route('/')
-    .post(postPlace)        // Create place
-    .get(getPlaces)         // Read all places
-    .delete(deletePlaces);  // Delete all places
+    .post(createPlace)          // Create place
+    .get(getPlaces)             // Read all places
+    .delete(deletePlaces);      // Delete all places
 
 // Routes starting with "/:id"
 router.route('/:id')
-    .get(getPlace)          // Read place with id
-    .put(putPlace)          // Update place with id
-    .delete(deletePlace);   // Delete place with id
+    .get(getPlace)              // Read   place with id
+    .put(updatePlace)           // Update place with id
+    .delete(deletePlace);       // Delete place with id
 
 export default router;
 
@@ -72,7 +72,7 @@ function getPlaces(req, res) {
     })
 }
 
-function postPlace(req, res) {
+function createPlace(req, res) {
     Place.create(req.body, (err, place) => {
         if (err) {
             res.status(400).send(err);
@@ -84,7 +84,7 @@ function postPlace(req, res) {
     })
 }
 
-function putPlace(req, res) {
+function updatePlace(req, res) {
     Place.findByIdAndUpdate(req.params.id, req.body, /*{new: true},*/ (err, place) => {
         if (err) {
             res.sendStatus(400);

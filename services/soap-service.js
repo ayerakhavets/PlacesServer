@@ -6,11 +6,11 @@ const myService = {
         SweetServicePort: {
             getPlace: function (args, callback) {
                 Place.find({}, (err, places) => {
-                    console.log(`SOAP: getPlace() ${args} ${_VI(args.x)} + ${_VI(args.y)}`);
+                    console.log(`${args} ${_VI(args.x)} + ${_VI(args.y)}`);
                     if (err) {
                         console.log(`${timeLog()} ${err.name}`)
                     } else {
-                        console.log(`${timeLog()} returned items: ${places.length}`);
+                        console.log(`${timeLog()} SOAP response: ${places.length}`);
                         callback(null, {number: places.length});
                     }
                 })
