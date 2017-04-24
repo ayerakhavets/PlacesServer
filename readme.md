@@ -18,24 +18,24 @@ MongoDB terminology:
 
 [SOAP module](https://github.com/vpulim/node-soap).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+s
+s
+s
+a
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+ss
+s
+s
+s
 
 [SOAP module](https://github.com/Liemrist/foodapi#features).
