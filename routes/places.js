@@ -9,7 +9,7 @@ router.route('/')
     .get(getPlaces)         // Read all places
     .delete(deletePlaces);  // Delete all places
 
-// Routes starting with "/places/:id"
+// Routes starting with "/:id"
 router.route('/:id')
     .get(getPlace)          // Read place with id
     .put(putPlace)          // Update place with id
