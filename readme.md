@@ -12,7 +12,7 @@ Both RESTful and SOAP server for node.js
   * Read place by id (GET /places/:id)
   * Update place by id (PUT /places/:id)
   * Delete place by id (DELETE /places/:id)
-* Handling SOAP requests
+* Handling SOAP request
 
 ## Primary modules
 [soap](https://github.com/vpulim/node-soap)
