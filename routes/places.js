@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Routes ending with "/"
 router.route('/')
-    .post(postPlaces)       // Create a place
+    .post(postPlace)        // Create place
     .get(getPlaces)         // Read all places
     .delete(deletePlaces);  // Delete all places
 
@@ -72,7 +72,7 @@ function getPlaces(req, res) {
     })
 }
 
-function postPlaces(req, res) {
+function postPlace(req, res) {
     Place.create(req.body, (err, place) => {
         if (err) {
             res.status(400).send(err);
