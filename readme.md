@@ -1,8 +1,7 @@
 # foodapi :fork_and_knife:
-
+Both RESTful and SOAP server for node.js
 ## Features:
-This API provides tools for the following:
-* Handling HTTP-requests such as:
+* Feature #1
   * Create place (POST http://apiurl/places)
   * Read all places (GET /places)
   * Delete all places (DELETE /places)
@@ -16,3 +15,7 @@ MongoDB terminology:
 * table - collection
 * row - document
 * column - field
+
+[SOAP module](https://github.com/vpulim/node-soap).
+
+[SOAP module](Little theory).
