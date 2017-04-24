@@ -1,31 +1,9 @@
 # foodapi :fork_and_knife:
 Both RESTful and SOAP server for node.js
 
-[SOAP module](https://github.com/Liemrist/foodapi#features).
-* s
-* s
-* s
-* a
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
-* s
+* [Features](https://github.com/Liemrist/foodapi#features).
+* [Primary modules](https://github.com/Liemrist/foodapi#primary-modules).
 
-* s
-* s
-* s
-* s
 ## Features:
 * Feature #1
   * Create place (POST http://apiurl/places)
@@ -41,5 +19,7 @@ MongoDB terminology:
 * table - collection
 * row - document
 * column - field
-
-[SOAP module](https://github.com/vpulim/node-soap).
+## Primary modules
+[soap](https://github.com/vpulim/node-soap).
+[express](https://github.com/expressjs/express)
+[mogoose](https://github.com/Automattic/mongoose)
