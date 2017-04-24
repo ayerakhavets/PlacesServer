@@ -23,7 +23,7 @@ const myService = {
 function _V(val) {
     let isObject = (a) => (!!a) && (a.constructor === Object);
     if (isObject(val)) {
-        return val.value;
+        return val.$value;
     } else {
         return val;
     }
