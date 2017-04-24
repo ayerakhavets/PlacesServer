@@ -1,8 +1,8 @@
 import app  from '../server';
 import http from 'http';
 import soap from 'soap';
-import {myService, xml} from '../configs/soap-service';
-import '../configs/database';
+import {myService, xml} from '../services/soap-service';
+import '../services/database';
 
 global.timeLog = () => `[${new Date().toLocaleString()}]`;
 
@@ -16,21 +16,17 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-// Normalize a port into a number, string, or false
+
+/** Normalize a port into a number, string or false. */
 function normalizePort(val) {
     const port = parseInt(val, 10);
-
     if (isNaN(port)) {
-        // named pipe
-        return val
+        return val      // named pipe
     }
-
     if (port >= 0) {
-        // port number
-        return port
+        return port     // port number
     }
-
-    return false;
+    return false
 }
 
 function onError(error) {
@@ -40,7 +36,7 @@ function onError(error) {
 
     const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-    // handle specific listen errors with friendly messages
+    // Handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');

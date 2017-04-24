@@ -78,7 +78,7 @@ function postPlace(req, res) {
             res.status(400).send(err);
             console.log(`${timeLog()} ${err.name}`)
         } else {
-            res.status(201).send(place);
+            res.status(201).json(place);
             console.log(`${timeLog()} ${place.name} created`)
         }
     })
@@ -93,7 +93,7 @@ function putPlace(req, res) {
             res.sendStatus(404);
             console.log(`${timeLog()} nothing found`)
         } else {
-            res.send(place);
+            res.json(place);
             console.log(`${timeLog()} ${place.id} updated`)
         }
     })

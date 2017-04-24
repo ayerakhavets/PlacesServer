@@ -24,7 +24,7 @@
             <xs:element name="Response">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="sum" type="xs:string"/>
+                        <xs:element name="number" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

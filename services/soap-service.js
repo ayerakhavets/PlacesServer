@@ -11,7 +11,7 @@ const myService = {
                         console.log(`${timeLog()} ${err.name}`)
                     } else {
                         console.log(`${timeLog()} returned items: ${places.length}`);
-                        callback(null, {sum: places.length});
+                        callback(null, {number: places.length});
                     }
                 })
             }
