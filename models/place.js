@@ -3,6 +3,9 @@ import mongoose from 'mongoose';
 import review   from './review';
 import workTime from './workTime';
 
+const ImageSchema = new mongoose.Schema({image: String}, {_id: false});
+const TagSchema = new mongoose.Schema({tag: String}, {_id: false});
+
 const PlaceSchema = new mongoose.Schema({
     description: String,
     prices: {
@@ -23,8 +26,8 @@ const PlaceSchema = new mongoose.Schema({
         required: [true, 'Why no location?']
     },
     workTime: workTime.schema,
-    tags: [String],
-    images: [String],
+    tags: [TagSchema],
+    images: [ImageSchema],
     reviews: [review.schema]
 }, {versionKey: false}, {minimize: false});
 

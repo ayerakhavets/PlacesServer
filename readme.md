@@ -8,7 +8,7 @@ Both RESTful and SOAP API on node.js
 * Performs basic Create/Read/Update/Delete (CRUD) operations
 * Handling SOAP request
 
-## Primary modules
+## Primary modules:
 [soap](https://github.com/vpulim/node-soap)
 [express](https://github.com/expressjs/express)
 [mogoose](https://github.com/Automattic/mongoose)
