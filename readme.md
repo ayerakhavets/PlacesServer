@@ -5,13 +5,7 @@ Both RESTful and SOAP API on node.js
 * [Primary modules](https://github.com/Liemrist/foodapi#primary-modules).
 
 ## Features:
-* Feature #1
-  * Create place (POST http://apiurl/places)
-  * Read all places (GET /places)
-  * Delete all places (DELETE /places)
-  * Read place by id (GET /places/:id)
-  * Update place by id (PUT /places/:id)
-  * Delete place by id (DELETE /places/:id)
+* Performs basic Create/Read/Update/Delete (CRUD) operations
 * Handling SOAP request
 
 ## Primary modules
