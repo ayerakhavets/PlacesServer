@@ -1,6 +1,10 @@
-const mongoose = require('mongoose');
-const location = require('./location');
-const time = require('./time');
+import location from './location';
+import mongoose from 'mongoose';
+import review   from './review';
+import workTime from './workTime';
+
+const ImageSchema = new mongoose.Schema({image: String}, {_id: false});
+const TagSchema = new mongoose.Schema({tag: String}, {_id: false});
 
 const PlaceSchema = new mongoose.Schema({
     description: String,
@@ -17,16 +21,14 @@ const PlaceSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Why no name?']
     },
-    time: time.schema,
-    reviews: [String],
-    images: [String],
-    locations: {
-        type: [location.schema],
+    location: {
+        type: location.schema,
         required: [true, 'Why no location?']
     },
-    tags: [String]
+    workTime: workTime.schema,
+    tags: [TagSchema],
+    images: [ImageSchema],
+    reviews: [review.schema]
 }, {versionKey: false}, {minimize: false});
 
-mongoose.model('Place', PlaceSchema);
-
-module.exports = mongoose.model('Place');
+export default mongoose.model('Place', PlaceSchema);

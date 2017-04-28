@@ -1,122 +1,100 @@
-// kinda PlacesController
+import express from 'express';
+import Place   from '../models/place';
 
-// MongoDB terminology:
-// db - db
-// table - collection
-// row - document
-// column - field
-
-const express = require('express');
-const Place = require('../models/place');
-
-// Get an instance of the express router
 const router = express.Router();
 
-// router.use(function(req, res, next) {
-//     console.log(`${timeLog()} connection accepted from ${req.ip} { url: "${req.url}", type: "${req.method}"}`)
-//     next()
-// })
-
-const errorLog = (err) => {
-    console.log(timeLog() + err.message)
-};
-
-// routes ending with /
+// Routes ending with "/"
 router.route('/')
+    .post(createPlace)          // Create place
+    .get(getPlaces)             // Read all places
+    .delete(deletePlaces);      // Delete all places
 
-// CREATE a place (accessed at POST http://localhost:3000/places)
-.post((req, res) => {
-    Place.create(req.body
-        /*{
-                    name:        req.body.name,
-                    addresses:   req.body.locations,
-                    type:        req.body.type,
-                    prices:      req.body.prices,
-                    description: req.body.description
-                }*/
-        , (err, place) => {
-            if (err) {
-                res.status(500).send(err);
-                errorLog(err)
-            } else {
-                res.send(place);
-                console.log(timeLog() + `${place.name} created`)
-            }
-        })
-})
-
-// READ all places (accessed at GET http://localhost:3000/places)
-.get((req, res) => {
-    Place.find({}, (err, places) => {
-        if (err) {
-            res.status(500).send(err);
-            errorLog(err)
-        } else {
-            res.json(places);
-            console.log(timeLog() + `returned items: ${places.length}`)
-        }
-    })
-})
-
-.delete((req, res) => {
-    Place.remove({}, (err) => {
-        if (err) {
-            res.status(500).send(err);
-            errorLog(err)
-        } else {
-            // fixme
-            res.sendStatus(201);
-            console.log(timeLog() + `collection Place removed`)
-        }
-    })
-});
-
-// routes starting with /places/:id
+// Routes starting with "/:id"
 router.route('/:id')
-    // READ the place with that id (accessed at GET http://localhost:3000/places/:id)
-    .get((req, res) => {
-        Place.findById(req.params.id, (err, place) => {
-            if (err) {
-                res.status(500).send(err);
-                errorLog(err)
-            } else if (place == null) {
-                res.sendStatus(404)
-            } else {
-                res.json(place);
-                console.log(timeLog() + `returned items: ${place.id}`)
-            }
-        })
-    })
+    .get(getPlace)              // Read   place with id
+    .put(updatePlace)           // Update place with id
+    .delete(deletePlace);       // Delete place with id
 
-// UPDATE the place with this id (accessed at PUT http://localhost:3000/places/:id)
-.put((req, res) => {
-    Place.findByIdAndUpdate(req.params.id, req.body, /*{new: true},*/ (err, place) => {
-        if (err) {
-            res.status(500).send(err);
-            errorLog(err)
-        } else if (place == null) {
-            res.sendStatus(404)
-        } else {
-            res.send(place);
-            console.log(timeLog() + `updated: { id: ${place.id}, name: ${place.name} }`)
-        }
-    })
-})
+export default router;
 
-// DELETE the place with this id (accessed at DELETE http://localhost:3000/places/:id)
-.delete((req, res) => {
+
+function deletePlace(req, res) {
     Place.findByIdAndRemove(req.params.id, (err, place) => {
         if (err) {
-            res.status(500).send(err);
-            errorLog(err)
-        } else if (place != null) {
-            res.json({ message: `Place ${place.name} removed` });
-            console.log(timeLog() + `Place ${place.name} has been removed`)
+            res.status(400).send(err);
+            console.log(`${timeLog()} ${err.name}`)
+        } else if (place !== null) {
+            res.sendStatus(204);
+            console.log(`${timeLog()} ${place.name} removed`)
         } else {
             res.sendStatus(404);
-            console.log('NO SUCH FILE')
+            console.log(`${timeLog()} nothing found`)
         }
     })
-});
+}
 
-module.exports = router;
+function deletePlaces(req, res) {
+    Place.remove({}, (err) => {
+        if (err) {
+            res.status(400).send(err);
+            console.log(`${timeLog()} ${err.name}`)
+        } else {
+            res.sendStatus(204);
+            console.log(`${timeLog()} ${Place.collection.collectionName} collection removed`)
+        }
+    })
+}
+
+function getPlace(req, res) {
+    Place.findById(req.params.id, (err, place) => {
+        if (err) {
+            res.status(400).send(err);
+            console.log(`${timeLog()} ${err.name}`)
+        } else if (place === null) {
+            res.sendStatus(404);
+            console.log(`${timeLog()} nothing found`)
+        } else {
+            res.json(place);
+            console.log(`${timeLog()} ${place.id} returned`)
+        }
+    })
+}
+
+function getPlaces(req, res) {
+    Place.find({}, (err, places) => {
+        if (err) {
+            res.status(400).send(err);
+            console.log(`${timeLog()} ${err.name}`)
+        } else {
+            res.json(places);
+            console.log(`${timeLog()} returned ${places.length} items`)
+        }
+    })
+}
+
+function createPlace(req, res) {
+    Place.create(req.body, (err, place) => {
+        if (err) {
+            res.status(400).send(err);
+            console.log(`${timeLog()} ${err.name}`)
+        } else {
+            res.status(201).json(place);
+            console.log(`${timeLog()} ${place.name} created`)
+        }
+    })
+}
+
+function updatePlace(req, res) {
+    Place.findByIdAndUpdate(req.params.id, req.body, /*{new: true},*/ (err, place) => {
+        if (err) {
+            res.sendStatus(400);
+            console.log(`${timeLog()} ${err.name}`)
+        } else if (place === null) {
+            res.sendStatus(404);
+            console.log(`${timeLog()} nothing found`)
+        } else {
+            res.json(place);
+            console.log(`${timeLog()} ${place.id} updated`)
+        }
+    })
+}

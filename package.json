@@ -1,24 +1,40 @@
 {
   "name": "foodapi",
-  "version": "1.0.0",
-  "description": "REST/SOAP api for foodInMinsk web-site and app",
+  "version": "1.1.0",
+  "description": "REST/SOAP API for foodInMinsk web-site and application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "babel-node ./bin/www"
   },
   "keywords": [
-    "rest",
-    "soap",
     "api",
-    "mongodb"
+    "mongodb",
+    "rest",
+    "soap"
   ],
-  "author": "Yerokhovets A. V.",
+  "author": "Alexander Yerokhovets",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.5",
     "soap": "^0.19.0"
-  }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "bin": {
+    "foodapi": "www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liemrist/foodapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Liemrist/foodapi/issues"
+  },
+  "homepage": "https://github.com/Liemrist/foodapi#readme"
 }
