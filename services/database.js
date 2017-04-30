@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const dbName   = 'Places';
-const dbUrl    = 'mongodb43339-minskfood.mycloud.by';
+const dbUrl    = 'env-2955146.mycloud.by';
 const username = 'naruto';
 const password = 'uzumaki';
 
