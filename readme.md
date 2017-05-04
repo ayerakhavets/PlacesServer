@@ -1,5 +1,5 @@
 # foodapi :fork_and_knife:
-Both RESTful and SOAP API on Node.js
+Both REST and SOAP API on Node.js
 
 * [Features](https://github.com/Liemrist/foodapi#features)
 * [Primary modules](https://github.com/Liemrist/foodapi#primary-modules)
