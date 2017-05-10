@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
-const dbName   = 'Places';
-const dbUrl    = 'mongodb43452-env-2955146.mycloud.by';
+const dbName = 'Places';
+const dbUrl = 'env-2955146.mycloud.by';
 const username = 'naruto';
 const password = 'uzumaki';
 
 const options = {
-    server: { reconnectInterval: 5000 },
+    server: {reconnectInterval: 5000},
     user: username,
     pass: password
 };
