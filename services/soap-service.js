@@ -18,13 +18,14 @@ const myService = {
                     (err, reqs) => {
                         if (err) {
                             console.log(`${timeLog()} ${err.name}`)
+                            callback(null, {number: 0});
                         } else {
                             console.log(`${timeLog()} Success? ${reqs}`)
+                            callback(null, {number: 42});
                         }
                     }
                 );
-                console.log(`${timeLog()} ${place.id} returned`);
-                return {number: 42};
+                //return {number: 42};
             }
         }
     }
