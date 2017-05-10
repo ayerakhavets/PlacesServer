@@ -14,10 +14,10 @@ const myService = {
                     {$addToSet: {reviews: data}},
                     (err, reqs) => {
                         if (err) {
-                            console.log(`${timeLog()} ${err.name}`)
+                            console.log(`${timeLog()} ${err.name}`);
                             callback(null, {number: 0});
                         } else {
-                            console.log(`${timeLog()} Success? ${reqs}`)
+                            console.log(`${timeLog()} Success? ${reqs}`);
                             callback(null, {number: 42});
                         }
                     }
