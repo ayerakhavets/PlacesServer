@@ -1,5 +1,4 @@
 import fs    from 'fs';
-import express from 'express';
 import Place from '../models/place';
 
 const myService = {
@@ -9,8 +8,6 @@ const myService = {
                 console.log(`args: ${_V(args.id)}, ${_V(args.author)}, ${_V(args.review)}`);
 
                 let data = {author: `${_V(args.author)}`, text: `${_V(args.review)}`};
-                var id = _V(args.id);
-                //var b = '58fcd5793334e52114d48529';
 
                 Place.update(
                     {'_id': _V(args.id)},
@@ -25,7 +22,6 @@ const myService = {
                         }
                     }
                 );
-                //return {number: 42};
             }
         }
     }
