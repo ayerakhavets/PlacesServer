@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <definitions
         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
-        xmlns:tns="http://minskfood.mycloud.by/"
+        xmlns:tns="http://localhost:3000/"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
         xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
         xmlns="http://schemas.xmlsoap.org/wsdl/"
-        name="PlacesWsdl">
+        name="ReviewWsdl">
     <!-- Types description -->
     <types>
         <xs:schema
                 xmlns:tns="http://schemas.xmlsoap.org/wsdl/"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 elementFormDefault="qualified"
-                targetNamespace="http://minskfood.mycloud.by/">
+                targetNamespace="http://localhost:3000/">
             <xs:element name="Request">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="x" type="xs:string"/>
-                        <xs:element name="y" type="xs:string"/>
+                        <xs:element name="id" type="xs:string"/>
+                        <xs:element name="author" type="xs:string"/>
+                        <xs:element name="review" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -30,24 +31,24 @@
             </xs:element>
         </xs:schema>
     </types>
-    <!-- getPlace procedure messages -->
-    <message name="getPlaceRequest">
+    <!-- addReview procedure messages -->
+    <message name="addReviewRequest">
         <part name="Request" element="tns:Request"/>
     </message>
-    <message name="getPlaceResponse">
+    <message name="addReviewResponse">
         <part name="Response" element="tns:Response"/>
     </message>
     <!-- Binding of procedure to messages -->
     <portType name="SweetServicePortType">
-        <operation name="getPlace">
-            <input message="tns:getPlaceRequest"/>
-            <output message="tns:getPlaceResponse"/>
+        <operation name="addReview">
+            <input message="tns:addReviewRequest"/>
+            <output message="tns:addReviewResponse"/>
         </operation>
     </portType>
     <!-- Service procedures format -->
     <binding name="SweetServiceBinding" type="tns:SweetServicePortType">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-        <operation name="getPlace">
+        <operation name="addReview">
             <soap:operation soapAction=""/>
             <input>
                 <soap:body use="literal"/>
@@ -60,7 +61,7 @@
     <!-- Service definition -->
     <service name="SweetService">
         <port name="SweetServicePort" binding="tns:SweetServiceBinding">
-            <soap:address location="http://minskfood.mycloud.by/wsdl"/>
+            <soap:address location="http://localhost:3000/wsdl"/>
         </port>
     </service>
 </definitions>

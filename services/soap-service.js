@@ -1,19 +1,30 @@
 import fs    from 'fs';
+import express from 'express';
 import Place from '../models/place';
 
 const myService = {
     SweetService: {
         SweetServicePort: {
-            getPlace: function (args, callback) {
-                Place.find({}, (err, places) => {
-                    console.log(`${args} ${_VI(args.x)} + ${_VI(args.y)}`);
-                    if (err) {
-                        console.log(`${timeLog()} ${err.name}`)
-                    } else {
-                        console.log(`${timeLog()} SOAP response: ${places.length}`);
-                        callback(null, {number: places.length});
+            addReview: function (args, callback) {
+                console.log(`args: ${_V(args.id)}, ${_V(args.author)}, ${_V(args.review)}`);
+
+                let data = {author: `${_V(args.author)}`, text: `${_V(args.review)}`};
+                var id = _V(args.id);
+                //var b = '58fcd5793334e52114d48529';
+
+                Place.update(
+                    {'_id': _V(args.id)},
+                    {$addToSet: {reviews: data}},
+                    (err, reqs) => {
+                        if (err) {
+                            console.log(`${timeLog()} ${err.name}`)
+                        } else {
+                            console.log(`${timeLog()} Success? ${reqs}`)
+                        }
                     }
-                })
+                );
+                console.log(`${timeLog()} ${place.id} returned`);
+                return {number: 42};
             }
         }
     }
@@ -27,10 +38,6 @@ function _V(val) {
     } else {
         return val;
     }
-}
-
-function _VI(val) {
-    return parseInt(_V(val));
 }
 
 const xml = fs.readFileSync(__dirname + '/myservice.wsdl', 'utf8');

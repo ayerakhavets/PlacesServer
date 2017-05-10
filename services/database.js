@@ -11,6 +11,7 @@ const options = {
     pass: password
 };
 mongoose.connect(`mongodb://${dbUrl}/${dbName}`, options);
+//mongoose.connect(`mongodb://localhost:27017/${dbName}`);
 
 const db = mongoose.connection;
 
