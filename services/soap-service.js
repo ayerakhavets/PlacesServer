@@ -15,9 +15,9 @@ const myService = {
                     (err, reqs) => {
                         if (err) {
                             console.log(`${timeLog()} ${err.name}`);
-                            callback(null, {number: 0});
+                            callback(null, {error: 'occurred'});
                         } else {
-                            console.log(`${timeLog()} Success? ${reqs}`);
+                            console.log(`${timeLog()} review created`);
                             callback(null, review);
                         }
                     }
