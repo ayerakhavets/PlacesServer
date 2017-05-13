@@ -18,7 +18,7 @@ const myService = {
                             callback(null, {number: 0});
                         } else {
                             console.log(`${timeLog()} Success? ${reqs}`);
-                            callback(null, review);
+                            callback(null, null);
                         }
                     }
                 );
