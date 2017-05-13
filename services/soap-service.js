@@ -7,18 +7,18 @@ const myService = {
             addReview: function (args, callback) {
                 console.log(`args: ${_V(args.id)}, ${_V(args.author)}, ${_V(args.text)}`);
 
-                let data = {author: `${_V(args.author)}`, text: `${_V(args.text)}`};
+                let review = {author: `${_V(args.author)}`, text: `${_V(args.text)}`};
 
                 Place.update(
                     {'_id': _V(args.id)},
-                    {$addToSet: {reviews: data}},
+                    {$addToSet: {reviews: review}},
                     (err, reqs) => {
                         if (err) {
                             console.log(`${timeLog()} ${err.name}`);
                             callback(null, {number: 0});
                         } else {
                             console.log(`${timeLog()} Success? ${reqs}`);
-                            callback(null, {author: _V(args.author), text: _V(args.text)});
+                            callback(null, review);
                         }
                     }
                 );
