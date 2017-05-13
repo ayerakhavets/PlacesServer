@@ -10,4 +10,4 @@ Node.js REST API with SOAP service
 ## Primary modules
 [soap](https://github.com/vpulim/node-soap)
 [express](https://github.com/expressjs/express)
-[mogoose](https://github.com/Automattic/mongoose)
+[mongoose](https://github.com/Automattic/mongoose)
