@@ -18,14 +18,15 @@
                     <xs:sequence>
                         <xs:element name="id" type="xs:string"/>
                         <xs:element name="author" type="xs:string"/>
-                        <xs:element name="review" type="xs:string"/>
+                        <xs:element name="text" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="Response">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="number" type="xs:string"/>
+                        <xs:element name="author" type="xs:string"/>
+                        <xs:element name="text" type="xs:string"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

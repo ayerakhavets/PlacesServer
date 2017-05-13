@@ -5,9 +5,9 @@ const myService = {
     SweetService: {
         SweetServicePort: {
             addReview: function (args, callback) {
-                console.log(`args: ${_V(args.id)}, ${_V(args.author)}, ${_V(args.review)}`);
+                console.log(`args: ${_V(args.id)}, ${_V(args.author)}, ${_V(args.text)}`);
 
-                let data = {author: `${_V(args.author)}`, text: `${_V(args.review)}`};
+                let data = {author: `${_V(args.author)}`, text: `${_V(args.text)}`};
 
                 Place.update(
                     {'_id': _V(args.id)},
@@ -18,7 +18,7 @@ const myService = {
                             callback(null, {number: 0});
                         } else {
                             console.log(`${timeLog()} Success? ${reqs}`);
-                            callback(null, {number: 42});
+                            callback(null, {author: _V(args.author), text: _V(args.text)});
                         }
                     }
                 );
