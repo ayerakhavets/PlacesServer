@@ -1,8 +1,8 @@
-import app  from '../server';
-import http from 'http';
-import soap from 'soap';
-import {myService, xml} from '../services/soap-service';
-import '../services/database';
+import app from "../server";
+import http from "http";
+import soap from "soap";
+import {myService, xml} from "../services/soap-service";
+import "../services/database";
 
 global.timeLog = () => `[${new Date().toLocaleString()}]`;
 

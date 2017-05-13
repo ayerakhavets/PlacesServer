@@ -1,5 +1,5 @@
-import express from 'express';
-import Place   from '../models/place';
+import express from "express";
+import Place from "../models/place";
 
 const router = express.Router();
 
@@ -9,9 +9,9 @@ router.route('/')
     .get(getPlaces)             // Read all places
     .delete(deletePlaces);      // Delete all places
 
-// Routes starting with "/:id"
+// Routes ending with "/:id"
 router.route('/:id')
-    .get(getPlace)              // Read   place with id
+    .get(getPlace)              // Read place with id
     .put(updatePlace)           // Update place with id
     .delete(deletePlace);       // Delete place with id
 

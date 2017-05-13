@@ -5,7 +5,7 @@ Node.js REST API with SOAP service
 
 ## Features
 * Performs basic Create/Read/Update/Delete (CRUD) operations
-* Handling simple SOAP request
+* Handling SOAP request
 
 ## Primary modules
 [soap](https://github.com/vpulim/node-soap)

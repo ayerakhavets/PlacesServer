@@ -1,5 +1,5 @@
-import fs    from 'fs';
-import Place from '../models/place';
+import fs from "fs";
+import Place from "../models/place";
 
 const myService = {
     SweetService: {
@@ -12,7 +12,7 @@ const myService = {
                 Place.update(
                     {'_id': _V(args.id)},
                     {$addToSet: {reviews: review}},
-                    (err, reqs) => {
+                    (err, success) => {
                         if (err) {
                             console.log(`${timeLog()} ${err.name}`);
                             callback(null, {error: 'occurred'});
@@ -27,7 +27,7 @@ const myService = {
     }
 };
 
-// Because ksoap2 throws an object
+// Because ksoap2 lib throws an object
 function _V(val) {
     let isObject = (a) => (!!a) && (a.constructor === Object);
     if (isObject(val)) {
