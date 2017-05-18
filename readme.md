@@ -8,6 +8,7 @@ Node.js REST API with SOAP service
 * Handling SOAP request
 
 ## Primary modules
-[soap](https://github.com/vpulim/node-soap)
 [express](https://github.com/expressjs/express)
+[body-parser](https://github.com/expressjs/body-parser)
 [mongoose](https://github.com/Automattic/mongoose)
+[soap](https://github.com/vpulim/node-soap)
