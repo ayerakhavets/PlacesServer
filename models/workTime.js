@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const TimeSchema = new mongoose.Schema({
     hours: {
         type: Number,
@@ -18,4 +19,4 @@ const WorkTimeSchema = new mongoose.Schema({
     close: TimeSchema
 }, {_id: false});
 
-export default mongoose.model('WorkTime', WorkTimeSchema)
+export default mongoose.model('WorkTime', WorkTimeSchema);

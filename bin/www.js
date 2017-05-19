@@ -4,6 +4,7 @@ import soap from "soap";
 import {myService, xml} from "../services/soap-service";
 import "../services/database";
 
+
 global.timeLog = () => `[${new Date().toLocaleString()}]`;
 
 const port = normalizePort(process.env.PORT || '3000');
@@ -17,7 +18,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 
-/** Normalize port into a number, string or false. */
+/** Normalizes port into a number, string or false. */
 function normalizePort(val) {
     const port = parseInt(val, 10);
     if (isNaN(port)) {
@@ -36,7 +37,7 @@ function onError(error) {
 
     const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
-    // Handle specific listen errors with friendly messages
+    // Handles specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(bind + ' requires elevated privileges');
@@ -56,6 +57,6 @@ function onListening() {
     const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
     console.log(`${timeLog()} listening on ${bind}`);
 
-    // Start SOAP service
+    // Starts SOAP service
     soap.listen(app, '/wsdl', myService, xml)
 }
