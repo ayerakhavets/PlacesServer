@@ -4,6 +4,7 @@ Node.js server
 * [Primary modules](https://github.com/Liemrist/foodapi#primary-modules)
 
 ## Features
+* Uses HTTP
 * Uses MongoDB
 * Implements REST API
   * Performs basic Create/Read/Update/Delete (CRUD) operations
