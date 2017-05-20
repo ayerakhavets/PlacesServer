@@ -1,4 +1,4 @@
-# foodapi :fork_and_knife:
+# PlacesServer :fork_and_knife:
 Node.js server
 * [Features](https://github.com/Liemrist/foodapi#features)
 * [Primary modules](https://github.com/Liemrist/foodapi#primary-modules)
