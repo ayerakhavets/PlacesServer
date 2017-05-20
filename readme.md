@@ -15,3 +15,6 @@ Node.js server
 [mongoose](https://github.com/Automattic/mongoose)
 [soap](https://github.com/vpulim/node-soap)
 [body-parser](https://github.com/expressjs/body-parser)
+
+## How-to-use
+Type `npm install` an then `npm start` in the console from the root directory of the project
