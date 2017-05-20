@@ -22,10 +22,10 @@ server.on('listening', onListening);
 function normalizePort(val) {
     const port = parseInt(val, 10);
     if (isNaN(port)) {
-        return val      // named pipe
+        return val // named pipe
     }
     if (port >= 0) {
-        return port     // port number
+        return port // port number
     }
     return false
 }
@@ -54,9 +54,11 @@ function onError(error) {
 
 function onListening() {
     let addr = server.address();
-    const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    const bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
     console.log(`${timeLog()} listening on ${bind}`);
 
     // Starts SOAP service
-    soap.listen(app, '/wsdl', myService, xml)
+    soap.listen(app, '/wsdl', myService, xml);
 }

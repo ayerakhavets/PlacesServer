@@ -11,11 +11,20 @@ const PlaceSchema = new mongoose.Schema({
     description: String,
     prices: {
         type: String,
-        enum: ['Cheap', 'Moderate', 'Expensive', 'Nightmare']
+        enum: [
+            'Cheap',
+            'Moderate',
+            'Expensive',
+            'Nightmare'
+        ]
     },
     type: {
         type: String,
-        enum: ['Zabegalovka', 'Cafe', 'Restaurant'],
+        enum: [
+            'Zabegalovka',
+            'Cafe',
+            'Restaurant'
+        ],
         required: [true, 'Why no type?']
     },
     name: {
